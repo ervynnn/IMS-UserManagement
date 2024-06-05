@@ -111,8 +111,8 @@ document.querySelector('.pop-save').addEventListener('click', function() {
         const row = tableBody.insertRow(-1);
         const cell1 = row.insertCell(0);
         const cell2 = row.insertCell(1);
-        const cell4 = row.insertCell(2);
-        const cell3 = row.insertCell(3);
+        const cell3 = row.insertCell(2);
+        const cell4 = row.insertCell(3);
         cell1.innerHTML = tableBody.rows.length;
         cell2.innerHTML = username;
         cell3.innerHTML = userid;
