@@ -1,0 +1,238 @@
+/* COLOR VARIABLES */
+:root {
+    --lm_darkblue: #03045E;
+    --lm_blue: #0077B6;
+    --lm_lblue: #00B4D8;
+    --lm_vlblue: #90E0EF;
+    --lm_white: #CAF0F8;
+
+    --dm-darkblue: #060616;
+    --white: #FBFEFE;
+}
+
+html{
+    font-family: Inter, sans-serif;
+}
+
+body{
+    background-image: linear-gradient(45deg,  #0077B6 , #90E0EF);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin: 0;
+}
+
+.sec1{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    display: flex;
+    margin: 4rem 6rem;
+}
+
+.logo img{
+    width: 10vw;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin: 6rem;
+}
+
+.text h2, h1, p{
+    color: var(--lm_white);
+    margin: 0;
+    padding: 0 0 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text h2{
+    font-size: 2vw;
+}
+
+.text h1{
+    font-size: 4vw;
+    width: 50vw;
+    padding: 0 0 1.5rem;
+}
+
+.text p{
+    font-size: 1.256vw;
+    width: 30vw;
+}
+
+.button-login {
+    width: 15vw;
+    background-color: var(--lm_darkblue);
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    margin: 2rem 0;
+    padding: 1vw 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5vw;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.2vw;
+  }
+
+.icon{
+    position: absolute;
+    width: 40vw;
+    top: 15rem;
+    right: 10vh;
+}
+
+/* SIGN UP CSS */
+
+.su-body{
+    background-image: none;
+    background-color: var(--lm_blue);
+}
+
+.su-sec{
+    display: flex;
+    flex-direction: row;
+}
+
+.su-left, .su-right{
+    margin: 0;
+    padding: 0;
+}
+
+.su-left{ width: 60%; }
+.su-right{
+     width: 35%; 
+     background-color:rgba(202, 240, 248, 0.3);
+     padding: 8rem 6rem;
+    }
+
+.div-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-icon img{
+    width: 40vw;
+}
+
+.su-right h1, P{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.su-right h1{
+    font-size: 2vw;
+    padding: 0rem;
+    letter-spacing: 0.2rem;
+}
+
+.su-right p{
+    padding-top: 1rem;
+    font-size: 1vw;
+}
+
+.div-userpass{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.div-userpass h2{
+    color:var(--lm_darkblue);
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem 0;
+}
+
+input[type = text], input[type = password]{
+    width: 100%;
+    padding: 1.2vw;
+    margin: 0.5vw 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    resize: none;
+    color:  var(#060616);
+    font-family: 'Inter', sans-serif;
+    font-size: 1vw;
+    letter-spacing: 0.05vw;
+    border-radius: 1rem;
+}
+
+input[ type = text ]::placeholder, textarea[type = text]::placeholder {
+    color:  rgba(6, 6, 22, 0.5);
+}
+
+.su-width{
+    margin: 5rem 0rem;
+    width: 100%;
+}
+
+/* checkmark */
+.container {
+    display: block;
+    position: relative;
+    width: 8vw;
+    padding: 0.2vw 0 0 2vw;
+    cursor: pointer;
+    font-size: 0.9vw;
+    color:var(--lm_white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .container input {
+   display: none;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5vw;
+    width: 1.5vw;
+    background-color: var(--white);
+    border: solid var(--lm_blue);
+    border-width: 0.08rem;
+  }
+  
+  .container:hover input ~ .checkmark {
+    background-color: #CCCCCC;
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: #BBBBBB;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    left: 0.55vw;
+    top: 0.2vw;
+    width: 0.3vw;
+    height: 0.7vw;
+    border: solid var(--lm_darkblue);
+    border-width: 0 0.2rem 0.2rem 0;
+    transform: rotate(45deg);
+  }
+
+  .div-showpass{
+    display: flex;
+    flex-direction: row-reverse;
+  }

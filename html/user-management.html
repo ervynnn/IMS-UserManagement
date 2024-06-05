@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" type="text/css" href="../css/um-style.css" />
+        <!-- Link to Google Fonts for Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <title>IMS | User Management</title>
+    </head>
+    <body>
+        <!-- Sidebar section -->
+        <section class="sidebar">
+            <div class="nav-section">
+                <ul>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <span class="nav-item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                inventory_2
+                            </span>
+                            <span class="nav-item">Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                            <span class="nav-item">Sale</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                receipt
+                            </span>
+                            <span class="nav-item">Purchase</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                            <span class="nav-item">Supplier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                            <span class="nav-item">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- User logout section -->
+            <div class="user-logout">
+                <div class="user">
+                    <span class="material-symbols-outlined logout-icon">
+                        move_item
+                    </span>
+
+                    <div class="user-details">
+                        <div>
+                            <p class="user-name">Name</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined" href> person </span>
+                </div>
+            </div>
+        </section>
+        <main class="main-content">
+            <div class="um-title">
+                <h1>USER MANAGEMENT</h1>
+                <p>Select User Type</p>
+                <div class="select-wrapper">
+                    <div class="select">
+                        <div class="select__trigger"><span><a>Admin</a></span>
+                            <span class="material-symbols-outlined dpdwn">
+                                keyboard_arrow_down
+                                </span>
+                        </div>
+                        <div class="custom-options">
+                            <span class="custom-option selected"><a>Admin</a></span>
+                            <span class="custom-option"><a>Manager</a></span>
+                            <span class="custom-option"><a>Customer</a></span>
+                            <span class="custom-option"><a>Supplier</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="um-title search">
+                <p>Search</p>
+                <div class="search-div">
+                    <span class="material-symbols-outlined search-icon">
+                        search
+                    </span>
+                    <input type="text" onkeyup="searchFunc()"  id="search" name="search" placeholder="Search name here..">
+                </div>
+            </div>
+            <div class="um-title">
+                <div class="div-table">
+                    <div class="upper-table">
+                        <h1>Manager List</h1>
+                        <div class="right-ut">
+                            <span class="material-symbols-outlined add">
+                                add_circle
+                            </span>
+                            <button class="button-edit">Edit</button>
+                            <button class="button-filter">
+                                <span class="material-symbols-outlined">
+                                    filter_list
+                                </span>
+                                <a>Filters</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lower-table">
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                <th class="user-num">No.</th>
+                                <th class="user-name">Name</th>
+                                <th class="user-id">User ID</th>
+                                <th class="user-pass">Password</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Peter</td>
+                                    <td>K123</td>
+                                    <td>kas3xe</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Parker</td>
+                                    <td>A213</td>
+                                    <td>asdx13</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Alven</td>
+                                    <td>AC234</td>
+                                    <td>asdwe21</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Jexter</td>
+                                    <td>Jh423</td>
+                                    <td>a23ks</td>
+                                </tr>
+                        </table>
+                          
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup">
+  
+                <form class="modal-content animate">
+
+                  <div class="pop-exit">
+                    <span onclick="document.querySelector('.popup').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  </div>
+
+                  <div class="pop-head">
+                    <h1>Add User</h1>
+                  </div>
+              
+                  <div class="pop-container">
+                    <h1>USERNAME<h1>
+                    <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+              
+                    <h1>PASSWORD<h1>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                     
+                    <h1>USER ID<h1>
+                    <input type="text" placeholder="Enter User ID" name="userid" id="userid" required>
+                      
+                    <div class="pop-btns">
+                        <button class="pop-save">Save</button>
+                        <button class="pop-remove">Remove</button>
+                    </div>
+                  </div>
+              
+                </form>
+              </div>
+            
+            
+        </main>
+        <script src="../javascript/um-script.js"> </script>
+    </body>
+</html>
