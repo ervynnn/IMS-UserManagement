@@ -19,7 +19,7 @@ for (const option of document.querySelectorAll(".custom-option")) {
     });
 }
 
-const tableBody = document.querySelector('tbody');
+var tableBody = document.querySelector('tbody');
 var rows = tableBody.querySelectorAll('tr');
 
 var btnremove = document.querySelector('.pop-remove');
@@ -34,19 +34,14 @@ var inputname = document.getElementById('uname');
 var inputpass = document.getElementById('psw');
 var inputid = document.getElementById('userid');
 
+var textContent = '';
+
 // Add click event listener to each row
-rows.forEach(row => {
-  row.addEventListener('click', function(event) {
-    document.querySelector('.button-edit').style.display = 'flex';
-    // Remove 'selected-row' class from all rows
-    rows.forEach(row => {
-      row.classList.remove('selected-row');
-    });
-    // Add 'selected-row' class to the clicked row
-    row.classList.add('selected-row');
-  });
+updateRow(function() {
+  document.querySelector('.button-edit').style.display = 'flex';
 });
 
+hidePassFunc();
 
 // Add click event listener to the 'Add' button
 document.querySelector('.add').addEventListener('click', function() {
@@ -71,7 +66,7 @@ document.querySelector('.add').addEventListener('click', function() {
 document.querySelector('.button-edit').addEventListener('click', function() {
     selectedrow = document.querySelector('.selected-row');
     inputname.value = selectedrow.cells[1].textContent;
-    inputpass.value = selectedrow.cells[3].textContent;
+    inputpass.value = selectedrow.cells[3].id;
     inputid.value = selectedrow.cells[2].textContent;
     pophead.textContent="Edit User";
     btnremove.style.display = 'flex';
@@ -94,6 +89,10 @@ document.querySelector('.pop-save').addEventListener('click', function() {
     const password = inputpass.value;
     const userid = inputid.value;
 
+    spanhide = document.createElement("span");
+    spanhide.className = "material-symbols-outlined";
+    spanhide.textContent = "visibility_off";
+
     // Clear the form
     inputname.value = '';
     inputpass.value = '';
@@ -103,9 +102,17 @@ document.querySelector('.pop-save').addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'none';
 
     if(pophead.textContent === "Edit User"){
+        icon = selectedrow.querySelector('.material-symbols-outlined');
         selectedrow.cells[1].textContent = username;
         selectedrow.cells[2].textContent = userid;
         selectedrow.cells[3].textContent = password;
+        selectedrow.cells[3].id =  password;
+        if (icon.textContent === "visibility") {
+          spanhide.textContent = "visibility";
+        } else {
+          spanhide.textContent = "visibility_off";
+          selectedrow.cells[3].textContent= '*'.repeat(password.length); 
+        }
     }else{
         // Create a new row and append it to the table
         const row = tableBody.insertRow(-1);
@@ -113,23 +120,37 @@ document.querySelector('.pop-save').addEventListener('click', function() {
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
         const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
         cell1.innerHTML = tableBody.rows.length;
         cell2.innerHTML = username;
         cell3.innerHTML = userid;
         cell4.innerHTML = password;
-
+        cell5.appendChild(spanhide);
         rows = tableBody.querySelectorAll('tr');
-        // Add click event listener to the new row
-        row.addEventListener('click', function(event) {
+       
+        updateRow(function() {
           document.querySelector('.button-edit').style.display = 'flex';
-          // Remove 'selected-row' class from all rows
-          rows.forEach(row => {
-            row.classList.remove('selected-row');
-          });
-          // Add 'selected-row' class to the clicked row
-          row.classList.add('selected-row');
         });
+
+        const passCell = row.cells[3];
+        const showpassSpan = row.querySelector('.material-symbols-outlined');
+        showpassSpan.textContent = "visibility_off";
+        passCell.id = passCell.textContent;
+        passCell.textContent= '*'.repeat(passCell.id.length); 
+
+        showpassSpan.addEventListener('click', function(event) {
+        if (showpassSpan.textContent === "visibility_off") {
+          showpassSpan.textContent = "visibility";
+          passCell.textContent = passCell.id;
+        } else {
+          showpassSpan.textContent = "visibility_off";
+          passCell.textContent= '*'.repeat(passCell.id.length); 
+        }
+
+      });
+    
     }
+  
   });
 
  // Add click event listener to the 'Remove' button
@@ -149,25 +170,26 @@ document.querySelector('.pop-save').addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'none';
     document.querySelector('.button-edit').style.display = 'none';
 
+    sortTable(0);
     rows = tableBody.querySelectorAll('tr');
     rows.forEach(row => {
         row.cells[0].textContent = row.rowIndex; 
     });
+    sortTable(1); 
      
-    // Add click event listener to each row
-    rows.forEach(row => {
-        row.addEventListener('click', function(event) {
-        // Remove 'selected-row' class from all rows
-        rows.forEach(row => {
-            row.classList.remove('selected-row');
-        });
-        // Add 'selected-row' class to the clicked row
-        row.classList.add('selected-row');
-        });
-    });
-      
 });
 
+document.querySelector('.button-filter').addEventListener('click', function() {
+  
+  btnFilter = document.querySelector('.button-filter');
+    if (btnFilter.classList.contains('filter-on')) {
+        btnFilter.classList.remove('filter-on');
+        sortTable(0);
+      }else{
+        btnFilter.classList.add('filter-on');
+        sortTable(1);
+      }
+});
 
 // SEARCH FUNCTION
 function searchFunc() {
@@ -193,3 +215,56 @@ function searchFunc() {
       }       
     }
   }
+  
+  function updateRow(callback) {
+    // Add click event listener to each row
+    rows.forEach(row => {
+        row.addEventListener('click', function(event) {
+            // Remove 'selected-row' class from all rows
+            rows.forEach(row => {
+                row.classList.remove('selected-row');
+            });
+            // Add 'selected-row' class to the clicked row
+            row.classList.add('selected-row');
+            // Execute the callback function
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+  });
+}
+
+function hidePassFunc() {
+ 
+  rows.forEach(row => {
+      const passCell = row.cells[3];
+
+      const showpassSpan = row.querySelector('.material-symbols-outlined');
+      showpassSpan.textContent = "visibility_off";
+      passCell.id = passCell.textContent;
+      passCell.textContent= '*'.repeat(passCell.id.length); 
+
+      showpassSpan.addEventListener('click', function(event) {
+      if (showpassSpan.textContent === "visibility_off") {
+        showpassSpan.textContent = "visibility";
+        passCell.textContent = passCell.id;
+      } else {
+        showpassSpan.textContent = "visibility_off";
+        passCell.textContent= '*'.repeat(passCell.id.length); 
+      }
+    });
+});
+}
+
+function sortTable(columnNo){
+  
+  const rows = Array.from(tableBody.querySelectorAll("tr"));
+  rows.sort((rowA, rowB) => {
+    const nameA = rowA.querySelector(`td:nth-child(${columnNo + 1})`).textContent.toLowerCase();
+    const nameB = rowB.querySelector(`td:nth-child(${columnNo + 1})`).textContent.toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  tableBody.innerHTML = "";
+  rows.forEach(row => tableBody.appendChild(row));
+}

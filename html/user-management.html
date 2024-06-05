@@ -127,7 +127,7 @@
                                 <span class="material-symbols-outlined">
                                     filter_list
                                 </span>
-                                <a>Filters</a>
+                                <a>Filter by Name</a>
                             </button>
                         </div>
                     </div>
@@ -135,10 +135,11 @@
                         <table class="user-table">
                             <thead>
                                 <tr>
-                                <th class="user-num">No.</th>
-                                <th class="user-name">Name</th>
-                                <th class="user-id">User ID</th>
-                                <th class="user-pass">Password</th>
+                                    <th class="user-num">No.</th>
+                                    <th class="user-name">Name</th>
+                                    <th class="user-id">User ID</th>
+                                    <th class="user-pass">Password</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -147,24 +148,36 @@
                                     <td>Peter</td>
                                     <td>K123</td>
                                     <td>kas3xe</td>
+                                    <td><span class="material-symbols-outlined">
+                                        visibility_off
+                                        </span></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Parker</td>
                                     <td>A213</td>
                                     <td>asdx13</td>
+                                    <td><span class="material-symbols-outlined">
+                                        visibility_off
+                                        </span></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>Alven</td>
                                     <td>AC234</td>
                                     <td>asdwe21</td>
+                                    <td><span class="material-symbols-outlined">
+                                        visibility_off
+                                        </span></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>Jexter</td>
                                     <td>Jh423</td>
                                     <td>a23ks</td>
+                                    <td><span class="material-symbols-outlined">
+                                        visibility_off
+                                        </span></td>
                                 </tr>
                         </table>
                           
@@ -174,7 +187,7 @@
 
             <div class="popup">
   
-                <form class="modal-content animate">
+                <div class="modal-content animate">
 
                   <div class="pop-exit">
                     <span onclick="document.querySelector('.popup').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -200,7 +213,7 @@
                     </div>
                   </div>
               
-                </form>
+                </div>
               </div>
             
             
