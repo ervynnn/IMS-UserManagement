@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 /* COLOR VARIABLES */
 :root {
     --lm_darkblue: #03045E;
@@ -31,6 +33,7 @@ body{
 .logo{
     display: flex;
     margin: 4rem 6rem;
+    cursor: pointer;
 }
 
 .logo img{
@@ -43,7 +46,7 @@ body{
     margin: 6rem;
 }
 
-.text h2, h1, p{
+.text h2, h1, p, h3, a{
     color: var(--lm_white);
     margin: 0;
     padding: 0 0 1rem;
@@ -52,12 +55,23 @@ body{
 
 .text h2{
     font-size: 2vw;
+    font-weight: 600;
 }
 
 .text h1{
     font-size: 4vw;
     width: 50vw;
     padding: 0 0 1.5rem;
+    font-weight: 700;
+}
+
+.text h3, .su-right h3{
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.text h3 a:hover, .su-right h3 a:hover{
+    color: var(--lm_darkblue);
 }
 
 .text p{
@@ -80,7 +94,15 @@ body{
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.2vw;
-  }
+}
+
+.landing-signup{
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+.button-login:hover{
+    background-color: rgb(2, 2, 62);
+}
 
 .icon{
     position: absolute;
@@ -89,7 +111,7 @@ body{
     right: 10vh;
 }
 
-/* SIGN UP CSS */
+/* SIGN UP AND LOGIN CSS */
 
 .su-body{
     background-image: none;
@@ -140,6 +162,12 @@ body{
     font-size: 1vw;
 }
 
+.su-right h3{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10vw;
+}
+
 .div-userpass{
     display: flex;
     flex-direction: column;
@@ -173,7 +201,7 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
 }
 
 .su-width{
-    margin: 5rem 0rem;
+    margin: 5rem 0 1rem 0;
     width: 100%;
 }
 
@@ -235,4 +263,21 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
   .div-showpass{
     display: flex;
     flex-direction: row-reverse;
+  }
+
+  /* ADDITIONAL FOR SIGN UP CSS */
+  .signup-div{
+    padding: 4rem 6rem;
+  }
+
+  .signup-details{
+    padding-top: 1rem;
+  }
+
+  .signup-details h2{
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+  .sign-up-btn{
+    margin: 3rem 0 1rem 0;
   }

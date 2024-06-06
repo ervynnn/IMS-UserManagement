@@ -21,12 +21,19 @@
             <h2>WELCOME</h2>
             <h1>Inventory Management System</h1>
             <p>In collaboration with Project Management, Software Engineering, and Programming Language.</p>
-            <button class="button-login" id="landingLogin">Login</button>
+            <button class="button-login landing-signup" id="landingLogin">Sign Up</button>
+            <h3>Already have an account?
+                <a href="html/login.html">Login Here</a>
+            </h3>
         </div>
         <img  class="icon" src="images/img-landing.png">
     </section>
 
-    <script src="javascript/landing-script.js"> </script>
+    <script>
+        document.getElementById("landingLogin").addEventListener("click", function() {
+            window.location.href = "html/register.html";
+        });
+    </script>
 </body>
 </html>
 

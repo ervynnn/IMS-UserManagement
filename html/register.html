@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-    <title>IMS | Login</title>
+    <title>IMS | Register</title>
 </head>
 <body class="su-body">
     <section class="sec1 su-sec">
@@ -22,15 +22,17 @@
                 <img class="su-icon" src="../images/img-landing.png">
             </div>
         </div>
-        <div class="su-right">
+        <div class="su-right signup-div">
             <h1>INVENTORY</h1>
             <h1>MANAGEMENT SYSTEM</h1>
             <p>by III-ACDS</p>
-            <div class="div-userpass">
+            <div class="div-userpass signup-details">
                 <h2> Username </h2>
                 <input type="text" id="username" name="username" placeholder="Enter Username">
                 <h2> Password </h2>
                 <input type="password" id="password" name="password" placeholder="Enter Password">
+                <h2> Confirm Password </h2>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter Password">
             </div>
             <div class="div-showpass">
                 <label class="container">Show Password
@@ -38,14 +40,14 @@
                      <span class="checkmark"></span>
                 </label>
             </div>
-            <button class="button-login su-width">Login</button>
-            <h3> Don't have an account?
-                <a href="register.html">Sign Up Here</a>
+            <button class="button-login su-width sign-up-btn">Sign Up</button>
+            <h3>Already have an account?
+                <a href="login.html">Login Here</a>
             </h3>
         </div>
     </section>
 
-    <script src="../javascript/login-script.js"> </script>
+    <script src="../javascript/register-script.js"> </script>
 </body>
 </html>
 
