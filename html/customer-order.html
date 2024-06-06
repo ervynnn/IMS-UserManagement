@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" type="text/css" href="../css/um-style.css" />
+        <!-- Link to Google Fonts for Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <title>IMS | Customer Order</title>
+    </head>
+    <body>
+        <!-- Sidebar section -->
+        <section class="sidebar">
+            <div class="nav-section">
+                <ul>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <span class="nav-item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                inventory_2
+                            </span>
+                            <span class="nav-item">Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                            <span class="nav-item">Sale</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                receipt
+                            </span>
+                            <span class="nav-item">Purchase</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                            <span class="nav-item">Supplier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                            <span class="nav-item">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- User logout section -->
+            <div class="user-logout">
+                <div class="user">
+                    <span class="material-symbols-outlined logout-icon">
+                        move_item
+                    </span>
+
+                    <div class="user-details">
+                        <div>
+                            <p class="user-name">Name</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined" href> person </span>
+                </div>
+            </div>
+        </section>
+        <main class="main-content">
+            <div class="um-title search search-order">
+                <div class="search-div">
+                    <span class="material-symbols-outlined search-icon">
+                        search
+                    </span>
+                    <input type="text" onkeyup="searchFunc()"  id="search" name="search" placeholder="Search item name here..">
+                </div>
+
+                <button class="button-filter co-filter">
+                    <span class="material-symbols-outlined">
+                        filter_list
+                    </span>
+                    <a>Filter by Name</a>
+                </button>
+            </div>
+
+            <div class="div-half">
+                <div class="div-product">
+                    <h1>Products</h1>
+                    <div class="product-table">
+                        <div class="product-table-hold">
+                            <table class="user-table product">
+                                <thead>
+                                    <tr>
+                                        <th class="itemNo">No.</th>
+                                        <th class="itemName">Item Name</th>
+                                        <th class="itemId">Item ID</th>
+                                        <th class="itemStock">Stock</th>
+                                        <th class="itemPrice">Price</th>
+                                        <th class="itemQuantity">Quantity</th>
+                                        <th class="purchase-product">Purchase</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Chippy</td>
+                                        <td>C01</td>
+                                        <td>20</td>
+                                        <td>₱4.00</td>
+                                        <td>0</td>
+                                        <td>
+                                            <span class="material-symbols-outlined add-quantity">
+                                                add
+                                            </span>
+                                            <span class="material-symbols-outlined remove-quantity">
+                                                remove
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Century Tuna</td>
+                                        <td>CT09</td>
+                                        <td>250</td>
+                                        <td>₱20.00</td>
+                                        <td>0</td>
+                                        <td>
+                                            <span class="material-symbols-outlined add-quantity">
+                                                add
+                                            </span>
+                                            <span class="material-symbols-outlined remove-quantity">
+                                                remove
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Kopiko Brown</td>
+                                        <td>KB00</td>
+                                        <td>499</td>
+                                        <td>₱10.00</td>
+                                        <td>0</td>
+                                        <td>
+                                            <span class="material-symbols-outlined add-quantity">
+                                                add
+                                            </span>
+                                            <span class="material-symbols-outlined remove-quantity">
+                                                remove
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Cobra</td>
+                                        <td>C99</td>
+                                        <td>100</td>
+                                        <td>₱20.00</td>
+                                        <td>0</td>
+                                        <td>
+                                            <span class="material-symbols-outlined add-quantity">
+                                                add
+                                            </span>
+                                            <span class="material-symbols-outlined remove-quantity">
+                                                remove
+                                            </span>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-order">
+                    <h1>Orders</h1>
+                    <div class="order-table">
+                        <div class="order-table-hold">
+                            <table class="user-table order">
+                                <thead>
+                                    <tr>
+                                        <th class="itemNoOrder">No.</th>
+                                        <th class="itemNameOrder">Item Name</th>
+                                        <th class="itemQuantityOrder">Quantity</th>
+                                        <th class="itemPriceOrder">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h1>Total Transaction</h1>
+                    <div class="transaction-summary">
+                            <div class="div-transaction">
+                                <h1>Total no. of selected items: </h1>
+                                <p id="total-items"></p>
+                            </div>
+                            <div class="div-transaction">
+                                <h1>Total calculated price:</h1>
+                                <p id="total-price"></p>
+                            </div>
+                    </div>
+                    <div class="confirm-order">
+                        <button class="button-confirm-order">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        
+        </main>
+        <script src="../javascript/co-script.js"> </script>
+    </body>
+</html>

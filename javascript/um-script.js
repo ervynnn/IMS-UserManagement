@@ -27,6 +27,7 @@ var btnsave = document.querySelector('.pop-save');
 
 var popup = document.querySelector('.popup');
 var pophead = document.querySelector('.pop-head h1');
+var popupHidePass = document.querySelector('.div-pass span');
 
 var selectedrow = document.querySelector('.selected-row');
 
@@ -42,6 +43,11 @@ updateRow(function() {
 });
 
 hidePassFunc();
+
+document.querySelector('.pop-exit .close').addEventListener('click', function() {
+  popupExit = document.querySelector('.pop-exit .close');
+  popup.style.display = "none"
+});
 
 // Add click event listener to the 'Add' button
 document.querySelector('.add').addEventListener('click', function() {
@@ -189,6 +195,17 @@ document.querySelector('.button-filter').addEventListener('click', function() {
         btnFilter.classList.add('filter-on');
         sortTable(1);
       }
+});
+
+document.querySelector('.div-pass span').addEventListener('click', function() {
+  if (popupHidePass.textContent === "visibility") {
+    popupHidePass.textContent = "visibility_off";
+    inputpass.type = "password";
+  } else {
+    popupHidePass.textContent = "visibility";
+    inputpass.type = "text";
+  }
+
 });
 
 // SEARCH FUNCTION

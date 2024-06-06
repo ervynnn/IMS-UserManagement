@@ -297,7 +297,7 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     align-items: center;
 }
 
-.right-ut button{
+.right-ut button, .button-confirm-order{
     align-items: center;
     text-align: center;
     text-decoration: none;
@@ -315,7 +315,7 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     color: white;
   }
 
-.button-edit:hover, .pop-save:hover {
+.button-edit:hover, .pop-save:hover, .button-confirm-order:hover {
     background-color: var(--lm_darkblue);
   }
 
@@ -440,6 +440,21 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     letter-spacing: 0.075rem;
 }
 
+.div-pass{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-pass span{
+    float: right;
+    padding: 0.5vw 0rem 0.5vw;
+    margin: 0;
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(58, 59, 63, 0.2);
+    cursor: pointer;
+}
+
 .pop-head{
     display: flex;
     justify-content: space-between;
@@ -485,4 +500,151 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
 
 .user-table tbody tr td:last-child, .button-filter span{
     cursor: pointer;
+}
+
+/* Customer Order CSS */
+
+.div-half{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    height: 75%;
+}
+
+.div-half h1{
+    color: var(--lm_darkblue);
+    font-size: 2vw;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.div-product{
+    width: 60%;
+}
+
+.div-order{
+    width: 40%;
+}
+
+.product-table, .order-table, .transaction-summary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBFEFE;
+    width: 95%;
+    margin: 1rem 1rem 1rem 0rem;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    padding: 1rem 1rem;
+}
+
+.order-table{
+    width: 100%;
+    margin: 1rem 1rem 2rem 0rem;
+}
+
+.product-table-hold, .order-table-hold{
+    width: 100%;
+    height: 27vw;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.order-table-hold{
+    height: 15vw;
+}
+
+.product-table-hold tr, .order-table-hold tr{
+    height: 2vw;
+    scroll-snap-align: start;
+  }
+
+.product tr:hover, .order tr:hover{
+    background-color: #FBFEFE;
+}
+  
+.product th,  .order th{
+    font-size: 1vw;
+}
+
+.product td, .order td{
+    font-size: 0.8vw;
+}
+
+.itemName{
+    width: 30%;
+}
+
+.itemPriceOrder{
+    width: 25%;
+}
+
+.itemStock .itemQuantity{
+    width: 10%;
+    text-align: center;
+}
+
+.product td:nth-child(4), .product td:nth-child(6),
+.order td:nth-child(3),
+.user-table .itemQuantityOrder {
+    text-align: center;
+  }
+
+.transaction-summary{
+    width: 100%;
+    height: 7vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-transaction{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    padding: 0.5vw 0.8vw;
+}
+
+.div-transaction h1{
+    font-weight: 500;
+    color: var(--txt-black);
+    font-size: 1vw;
+}
+
+.div-transaction p{
+    font-weight: 400;
+    color: var(--txt-gray);
+    font-size: 0.8vw;
+}
+
+.confirm-order{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
+}
+
+.button-confirm-order {
+    display:flex;
+    background-color: var(--btn-blue);
+    border: none;
+    color: white;
+    font-size: 1.2vw;
+    margin: 0;
+  }
+
+.search-order{
+    flex-direction: row;
+    align-items: center;
+}
+
+.co-filter{
+    margin-left:3vw;
+    padding: 1vw;
+    font-size: 1vw;
+    border-radius: 0.5rem;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.co-filter span{
+    font-size: 1.2vw;
 }

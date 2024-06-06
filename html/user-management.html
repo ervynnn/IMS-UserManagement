@@ -199,7 +199,7 @@
                 <div class="modal-content animate">
 
                   <div class="pop-exit">
-                    <span onclick="document.querySelector('.popup').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <span class="close" title="Close Modal">&times;</span>
                   </div>
 
                   <div class="pop-head">
@@ -211,8 +211,13 @@
                     <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
               
                     <h1>PASSWORD<h1>
-                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-                     
+                    <div class="div-pass">
+                        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                        <span class="material-symbols-outlined">
+                            visibility_off
+                            </span>
+                    </div> 
+
                     <h1>USER ID<h1>
                     <input type="text" placeholder="Enter User ID" name="userid" id="userid" required>
                       
@@ -223,7 +228,7 @@
                   </div>
               
                 </div>
-              </div>
+            </div>
             
             
         </main>
