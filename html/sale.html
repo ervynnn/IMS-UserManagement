@@ -99,12 +99,12 @@
                             </div>
                             <div>
                                 <h2>Sales No.</h2>
-                                <p>####001</p>
+                                <p class="createSalesID">####001</p>
                             </div>
                             <div>
                                 <h2>Date</h2>
-                                <p>06/07/2024</p>
-                            </div>
+                                <p class="createSalesDate">06/07/2024</p>
+                            </div>                                                      
                         </div>
                         <div class="sales-table-hold">
                             <table class="user-table create-sales">
@@ -118,8 +118,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  
+                                </tbody>
                             </table>
+                        </div>
+                        <div class="sales-total">
+                           <h1>Total Amount:</h1>
+                           <p></p>
                         </div>
                         <div class="create-sales-btn">
                             <button class="create-sales-btn-confirm">Create Sales</button>
@@ -133,7 +137,59 @@
                 </div>
                 <div class="div-sales-history">
                     <div class="div-table history-sales-div">
-                        <h1>Purchase History</h1>
+                        <h1>Sales History</h1>
+
+                        <div class="sales-history-hold">
+                            <table class="user-table sales-history">
+                                <thead>
+                                    <tr>
+                                        <th class="salesNo">No.</th>
+                                        <th class="salesDate">Date</th>
+                                        <th class="salesUser">User</th>
+                                        <th class="salesId">Sales ID</th>
+                                        <th class="salesAmount">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                </tbody>
+                                    
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="div-table history-sales-div">
+                        <h1>Purchase Order</h1>
+
+                        <div class="purchase-history-hold">
+                            <table class="user-table purchase-history">
+                                <thead>
+                                    <tr>
+                                        <th class="salesNo">No.</th>
+                                        <th class="salesDate">Date</th>
+                                        <th class="salesUser">Customer</th>
+                                        <th class="salesId">Purchase ID</th>
+                                        <th class="salesAmount">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>5/6/2024</td>
+                                        <td>Alven</td>
+                                        <td>PS02K1</td>
+                                        <td>₱10,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>6/8/2024</td>
+                                        <td>Jexter</td>
+                                        <td>PS09P0</td>
+                                        <td>₱20.00</td>
+                                    </tr>
+                                </tbody>  
+                            </table>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -197,7 +253,7 @@
                                     <td>100</td>
                                     <td>₱20.00</td>
                                 </tr>
-                                
+                            </tbody>
                         </table>
                     </div>
                     <div class="div-half">

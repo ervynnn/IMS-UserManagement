@@ -395,7 +395,7 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
   
 
 .popup, .popup-sales {
-    display: flex;
+    display: none;
     position: fixed; 
     z-index: 1;
     top:0;
@@ -549,7 +549,8 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     margin: 1rem 1rem 2rem 0rem;
 }
 
-.product-table-hold, .order-table-hold{
+.product-table-hold, .order-table-hold, 
+.sales-history-hold, .purchase-history-hold{
     width: 100%;
     height: 27vw;
     overflow-y: auto;
@@ -560,10 +561,22 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     height: 15vw;
 }
 
-.product-table-hold tr, .order-table-hold tr, .sales-table-hold tr{
+.purchase-history-hold{
+    height: 14vw;
+    margin: 1rem 0;
+}
+
+
+.sales-history-hold{
+    height: 18vw;
+    margin: 1rem 0;
+}
+
+.product-table-hold tr, .order-table-hold tr, 
+.purchase-history-hold tr{
     height: 2vw;
     scroll-snap-align: start;
-  }
+}
 
 .product tr:hover, .order tr:hover{
     background-color: #FBFEFE;
@@ -668,7 +681,11 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     padding-bottom: 0;
 }
 
-.create-sales-div h1, .history-sales-div{
+.history-sales-div:nth-child(1){
+    margin-bottom: 1rem;
+}
+
+.create-sales-div h1, .history-sales-div h1{
     font-size: 1.5vw;
 }
 
@@ -703,19 +720,23 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     font-weight: 400;
 }
 
-.create-sales, .product-pop{
+.create-sales, .product-pop, 
+.sales-history, .purchase-history{
     margin-top: 0;
 }
 
-.create-sales tbody, .product-pop tbody{
+.create-sales tbody, .product-pop tbody, 
+.sales-history tbody, .purchase-history tbody{
     margin-top: 0;
 }
 
-.create-sales td, .product-pop td{
+.create-sales td, .product-pop td, 
+.sales-history td, .purchase-history td{
     font-size: 0.8vw;
 }
 
-.create-sales th, .product-pop th{
+.create-sales th, .product-pop th, 
+.sales-history th, .purchase-history th{
     height: 2vw;
     font-size: 0.8vw;
 }
@@ -732,6 +753,15 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     width: 35%;
 }
 
+.sales-history td:nth-child(3), .purchase-history td:nth-child(3){
+    width: 30%;
+}
+
+.sales-history td:nth-child(5),  .sales-history td:nth-child(2),
+.purchase-history td:nth-child(5), .purchase-history td:nth-child(2) {
+    width: 15%;
+}
+
 .create-sales .cSaleQuantity, .create-sales td:nth-child(4){
     text-align: center;
     width: 20%;
@@ -741,8 +771,12 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
+    height: 2.6vw;
     margin: 1rem 0rem;
-  
+}
+
+.create-sales-btn :nth-child(1){
+    margin-right: 0;
 }
 
 .create-sales-btn-edit-item, .create-sales-btn-confirm{
@@ -779,7 +813,7 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
 }
 
 .modal-content-sales{
-    min-height: 40vw;
+    min-height: 38vw;
 }
 
 .pop-head-sales{
@@ -806,9 +840,31 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
 
 .sales-table-hold{
     width: 100%;
-    height: 28.5vw;
+    height: 26vw;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+}
+
+.sales-total{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 1rem 0 0 0;
+}
+
+.sales-total h1{
+    width: 14%;
+    color: var(--txt-black);
+    font-size: 0.8vw;
+    text-shadow: none;
+}
+
+.sales-total p{
+    width: 18%;
+    color: var(--txt-black);
+    font-size: 0.8vw;
+    font-weight: 400;
+    text-shadow: none;
 }
 
 .search-popup-item{
@@ -860,6 +916,10 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
     flex-direction: row;
     margin-right: 2rem;
     border-right: 1px solid rgba(58, 59, 63, 0.2);
+}
+
+.modify-item button:first-child{
+    margin-right: 1rem;
 }
 
 .modify-item button:last-child{
