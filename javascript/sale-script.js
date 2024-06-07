@@ -9,6 +9,7 @@ var cSalesSelectedRow = cSalesTableBody.querySelector('.selected-row');
 var popupSales = document.querySelector('.popup-sales');
 var popupAdd = document.querySelector('.add-sales');
 var popupEdit = document.querySelector('.edit-sales');
+var popupRemove = document.querySelector('.remove-sales');
 
 var quantityInput = document.getElementById('sales-quantity');
 var confirmAddSales = document.querySelector('.confirm-add-sales');
@@ -18,6 +19,7 @@ var searchPopUp = document.getElementById('search');
 var popHeadTitle = document.querySelector('.pop-head-sales h1');
 
 popupEdit.style.display = "none";
+popupRemove.style.display = "none";
 
 document.querySelector('.pop-exit .close').addEventListener('click', function() {
   popupSales.style.display = "none";
@@ -41,63 +43,88 @@ popupEdit.addEventListener('click', function() {
   });
 });
 
-confirmAddSales.addEventListener('click', function() {
-  pOrdSelectedRow = pOrdTableBody.querySelector('.selected-row-popup');
+popupRemove.addEventListener('click', function() {
+  selectedrow = document.querySelector('.selected-row');
+  if (selectedrow) {
+      selectedrow.parentNode.removeChild(selectedrow);
+    }
+  selectedrow.classList.remove('selected-row');
+
+  // RESET POPUP ITEM
   popupSales.style.display = "none"
-  let condition = true;
-
-  popupEdit.style.display = "none";
-  cSalesRows.forEach(cSalesRow => {
-    cSalesRow.classList.remove('selected-row');
-  });
-
-  cSalesRows = cSalesTableBody.querySelectorAll('tr');
-  cSalesRows.forEach(cSalesRow => {
-      if(cSalesRow.cells[2].textContent === pOrdSelectedRow.cells[2].textContent){
-          if(popHeadTitle.textContent === "Add Item"){
-            var quantity = parseFloat(cSalesRow.cells[3].textContent) + parseFloat(quantityInput.value);
-          }else{
-            var quantity = parseFloat(quantityInput.value);
-          }
-          cSalesRow.cells[3].textContent = quantity;
-          var priceReg = parseFloat(pOrdSelectedRow.cells[4].textContent.replace(/[^0-9\-+\.]/g, ""));
-          var priceFinal = priceReg * quantity;
-          priceFinal = `${priceFinal.toFixed(2)}`;
-          cSalesRow.cells[4].textContent = '₱' + priceFinal;
-          condition = false;
-         
-      }
-  });
-
-  if(popHeadTitle.textContent === "Add Item" && condition === true){
-    const row = cSalesTableBody.insertRow(-1);
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    const cell3 = row.insertCell(2);
-    const cell4 = row.insertCell(3);
-    const cell5 = row.insertCell(4);
-    cell1.innerHTML = cSalesTableBody.rows.length;
-    cell2.innerHTML = pOrdSelectedRow.cells[1].textContent;
-    cell3.innerHTML = pOrdSelectedRow.cells[2].textContent;
-    cell4.innerHTML = quantityInput.value;
-    var priceFinal = quantityInput.value * parseFloat(pOrdSelectedRow.cells[4].textContent.replace(/[^0-9\-+\.]/g, ""));
-    priceFinal = `${priceFinal.toFixed(2)}`;
-    cell5.innerHTML = '₱' + priceFinal;
-
-    row.addEventListener('click', function(event) {
-      cSalesRows =  cSalesTableBody.querySelectorAll('tr');
-      cSalesRows.forEach(cSalesRow => {
-        cSalesRow.classList.remove('selected-row');
-      });
-      row.classList.add('selected-row');
-      popupEdit.style.display = "flex";
-  });
-  }
-
   pOrdSelectedRow.classList.remove('selected-row-popup');
+  popupEdit.style.display = "none";
+  popupRemove.style.display = "none";
   quantityInput.value = 1;
   searchPopUp.textContent = "";
 
+  sortTable(0, cSalesTableBody);
+  rows = cSalesTableBody.querySelectorAll('tr');
+  rows.forEach(row => {
+      row.cells[0].textContent = row.rowIndex; 
+  });
+
+});
+
+confirmAddSales.addEventListener('click', function() {
+  pOrdSelectedRow = pOrdTableBody.querySelector('.selected-row-popup');
+  let condition = true;
+  if(pOrdSelectedRow){
+    popupEdit.style.display = "none";
+    popupRemove.style.display = "none";
+    cSalesRows.forEach(cSalesRow => {
+      cSalesRow.classList.remove('selected-row');
+    });
+
+    cSalesRows = cSalesTableBody.querySelectorAll('tr');
+    cSalesRows.forEach(cSalesRow => {
+        if(cSalesRow.cells[2].textContent === pOrdSelectedRow.cells[2].textContent){
+            if(popHeadTitle.textContent === "Add Item"){
+              var quantity = parseFloat(cSalesRow.cells[3].textContent) + parseFloat(quantityInput.value);
+            }else{
+              var quantity = parseFloat(quantityInput.value);
+            }
+            cSalesRow.cells[3].textContent = quantity;
+            var priceReg = parseFloat(pOrdSelectedRow.cells[4].textContent.replace(/[^0-9\-+\.]/g, ""));
+            var priceFinal = priceReg * quantity;
+            priceFinal = `${priceFinal.toFixed(2)}`;
+            cSalesRow.cells[4].textContent = '₱' + priceFinal;
+            condition = false;
+          
+        }
+    });
+
+    if(popHeadTitle.textContent === "Add Item" && condition === true){
+      const row = cSalesTableBody.insertRow(-1);
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+      cell1.innerHTML = cSalesTableBody.rows.length;
+      cell2.innerHTML = pOrdSelectedRow.cells[1].textContent;
+      cell3.innerHTML = pOrdSelectedRow.cells[2].textContent;
+      cell4.innerHTML = quantityInput.value;
+      var priceFinal = quantityInput.value * parseFloat(pOrdSelectedRow.cells[4].textContent.replace(/[^0-9\-+\.]/g, ""));
+      priceFinal = `${priceFinal.toFixed(2)}`;
+      cell5.innerHTML = '₱' + priceFinal;
+
+      row.addEventListener('click', function(event) {
+        cSalesRows =  cSalesTableBody.querySelectorAll('tr');
+        cSalesRows.forEach(cSalesRow => {
+          cSalesRow.classList.remove('selected-row');
+        });
+        row.classList.add('selected-row');
+        popupEdit.style.display = "flex";
+        popupRemove.style.display = "flex";
+    });
+    }
+
+    popupSales.style.display = "none"
+    pOrdSelectedRow.classList.remove('selected-row-popup');
+    quantityInput.value = 1;
+    searchPopUp.textContent = "";
+  }
 });
 
 // UPDATE ROWS FOR PRODUCT POP UP
@@ -147,4 +174,17 @@ function updateRowPopup(rows) {
             quantityInput.value = 1;
         });
   });
+}
+
+function sortTable(columnNo, tableBody){
+  
+  const rows = Array.from(tableBody.querySelectorAll("tr"));
+  rows.sort((rowA, rowB) => {
+    const nameA = rowA.querySelector(`td:nth-child(${columnNo + 1})`).textContent.toLowerCase();
+    const nameB = rowB.querySelector(`td:nth-child(${columnNo + 1})`).textContent.toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  tableBody.innerHTML = "";
+  rows.forEach(row => tableBody.appendChild(row));
 }

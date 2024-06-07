@@ -852,5 +852,16 @@ input[ type = text ]::placeholder, textarea[type = text]::placeholder {
 .confirm-add-sales{
     padding: 0.8rem;
     height: 3rem;
+    margin-right: 1rem;
+}
+
+.modify-item{
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+    border-right: 1px solid rgba(58, 59, 63, 0.2);
+}
+
+.modify-item button:last-child{
     margin-right: 2rem;
 }
