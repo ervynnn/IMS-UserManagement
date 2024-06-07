@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" type="text/css" href="../css/um-style.css"/>
+        <!-- Link to Google Fonts for Material Symbols -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+        <title>IMS | Sales</title>
+    </head>
+    <body>
+        <!-- Sidebar section -->
+        <section class="sidebar">
+            <div class="nav-section">
+                <ul>
+                    <li>
+                        <a href="/dashboard" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <span class="nav-item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/inventory" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                inventory_2
+                            </span>
+                            <span class="nav-item">Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sale" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                            <span class="nav-item">Sale</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/purchase" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                receipt
+                            </span>
+                            <span class="nav-item">Purchase</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/supplier" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                            <span class="nav-item">Supplier</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- User logout section -->
+            <div class="user-logout">
+                <div class="user">
+                    <span class="material-symbols-outlined logout-icon">
+                        move_item
+                    </span>
+
+                    <div class="user-details">
+                        <div>
+                            <p class="user-name">Name</p>
+                            <p class="user-role">Role</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined"> person </span>
+                </div>
+            </div>
+        </section>
+        <!-- Main content area -->
+        <main class="main-content">
+            
+            <div class="um-title title-sales">
+                <h1>SALES</h1>
+            </div>
+            
+            <div class="div-half">
+                <div class="div-sales">
+                    <div class="div-table create-sales-div">
+                        <h1>Create Sales Order</h1>
+                        <div class="sales-info">
+                            <div>
+                                <h2>Customer Name</h2>
+                                <input type="text" placeholder="Enter Username" name="uname-sales" id="uname-sales" required>
+                            </div>
+                            <div>
+                                <h2>Sales No.</h2>
+                                <p>####001</p>
+                            </div>
+                            <div>
+                                <h2>Date</h2>
+                                <p>06/07/2024</p>
+                            </div>
+                        </div>
+                        <div class="sales-table-hold">
+                            <table class="user-table create-sales">
+                                <thead>
+                                    <tr>
+                                        <th class="cSaleNo">No.</th>
+                                        <th class="cSaleName">Item Name</th>
+                                        <th class="cSaleId">Item Id</th>
+                                        <th class="cSaleQuantity">Quantity</th>
+                                        <th class="cSaleAmount">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                            </table>
+                        </div>
+                        <div class="create-sales-btn">
+                            <button class="create-sales-btn-confirm">Create Sales</button>
+                            <button class="create-sales-btn-edit-item edit-sales">Edit Item</button>
+                            <button class="create-sales-btn-edit-item add-sales">Add Item</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-sales-history">
+                    <div class="div-table history-sales-div">
+                        <h1>Purchase History</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="popup-sales">
+  
+                <div class="modal-content-sales sales-popup animate">
+
+                  <div class="pop-exit">
+                    <span class="close" title="Close Modal">&times;</span>
+                  </div>
+
+                  <div class="pop-head pop-head-sales">
+                    <h1>Add Item</h1>
+                  </div>
+
+                  <div class="search-div search-popup-item">
+                    <span class="material-symbols-outlined search-icon">
+                        search
+                    </span>
+                    <input type="text" onkeyup="searchFunc()"  id="search" name="search" placeholder="Search item name here..">
+                </div>
+
+                    <div class="product-popup">
+                        <table class="user-table product-pop">
+                            <thead>
+                                <tr>
+                                    <th class="cSaleNo">No.</th>
+                                    <th class="cSaleName">Item Name</th>
+                                    <th class="cSaleId">Item Id</th>
+                                    <th class="cSaleStock">Stock</th>
+                                    <th class="cSalePrice">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Chippy</td>
+                                    <td>C01</td>
+                                    <td>20</td>
+                                    <td>₱4.00</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Century Tuna</td>
+                                    <td>CT09</td>
+                                    <td>250</td>
+                                    <td>₱20.00</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Kopiko Brown</td>
+                                    <td>KB00</td>
+                                    <td>499</td>
+                                    <td>₱10.00</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Cobra</td>
+                                    <td>C99</td>
+                                    <td>100</td>
+                                    <td>₱20.00</td>
+                                </tr>
+                                
+                        </table>
+                    </div>
+                    <div class="div-half">
+                        <div class="sale-quantity">
+                            <h1>Quantity:</h1>
+                            <input type="number" min="1" placeholder="1" name="sales-quantity" id="sales-quantity" required>
+                        </div>
+                        <div class="sale-confirm">
+                            <button class="create-sales-btn-confirm confirm-add-sales">Save</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../javascript/sale-script.js"> </script>
+    </body>
+</html>
